@@ -48,6 +48,7 @@
 						"value": "@activity('read source table list').output.value",
 						"type": "Expression"
 					},
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "ingest from source to silver",
@@ -71,10 +72,6 @@
 								},
 								"waitOnCompletion": true,
 								"parameters": {
-									"table_Id": {
-										"value": "@item().table_id",
-										"type": "Expression"
-									},
 									"adf_run_id": {
 										"value": "@pipeline().parameters.adf_run_id",
 										"type": "Expression"
