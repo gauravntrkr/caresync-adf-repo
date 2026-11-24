@@ -152,7 +152,7 @@
 							"type": "Expression"
 						},
 						"table_name": {
-							"value": "@activity('read table details').output.firstRow.source_system.bronze_table_name",
+							"value": "@activity('read table details').output.firstRow.bronze_table_name",
 							"type": "Expression"
 						}
 					}
