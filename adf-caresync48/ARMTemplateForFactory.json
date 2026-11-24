@@ -70,7 +70,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "SELECT * FROM ctrl.table_config WHERE table_id=@{pipeline().parameters.table_Id}",
+									"value": "SELECT * FROM ctrl.table_config WHERE table_id=@{pipeline().parameters.table_id}",
 									"type": "Expression"
 								},
 								"queryTimeout": "02:00:00",
@@ -283,7 +283,7 @@
 								{
 									"type": "Query",
 									"text": {
-										"value": "UPDATE ctrl.audit_log\nSET status='SUCCESS', end_time=SYSUTCDATETIME(), records_written=@{activity('bronze_to_silver').output.runOutput}\nWHERE adf_run_id='@{pipeline().parameters.adf_run_id}' AND table_id=@{pipeline().parameters.table_Id}",
+										"value": "UPDATE ctrl.audit_log\nSET status='SUCCESS', end_time=SYSUTCDATETIME(), records_written=@{activity('bronze_to_silver').output.runOutput}\nWHERE adf_run_id='@{pipeline().parameters.adf_run_id}' AND table_id=@{pipeline().parameters.table_id}",
 										"type": "Expression"
 									}
 								}
@@ -331,7 +331,7 @@
 										"source": {
 											"type": "AzureSqlSource",
 											"sqlReaderQuery": {
-												"value": "SELECT watermark_value FROM ctrl.watermark WHERE table_id=@{pipeline().parameters.table_Id}",
+												"value": "SELECT watermark_value FROM ctrl.watermark WHERE table_id=@{pipeline().parameters.table_id}",
 												"type": "Expression"
 											},
 											"queryTimeout": "02:00:00",
@@ -410,7 +410,7 @@
 											{
 												"type": "Query",
 												"text": {
-													"value": "update ctrl.watermark\nset watermark_value=SYSUTCDATETIME()\nwhere table_id=@{pipeline().parameters.table_Id}",
+													"value": "update ctrl.watermark\nset watermark_value=SYSUTCDATETIME()\nwhere table_id=@{pipeline().parameters.table_id}",
 													"type": "Expression"
 												}
 											}
